@@ -40,14 +40,17 @@ return [
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'install' => 'special/install/index',
+                '<controller>' => '<controller>/index',
+                '<controller>/<action>' => '<controller>/<action>',
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
