@@ -6,6 +6,7 @@ use yii\helpers\Html;
 /* @var $content string */
 
 dmstr\web\AdminLteAsset::register($this);
+backend\assets\AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ dmstr\web\AdminLteAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="login-page">
+<body class="bg-primary">
 
 <?php $this->beginBody() ?>
 

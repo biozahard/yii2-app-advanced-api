@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -72,6 +73,11 @@ class SiteController extends Controller
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
+        }
+
+        $hasUsers = (int)User::find()->select('id')->count();
+        if($hasUsers == 0){
+            return Yii::$app->response->redirect(['install']);
         }
 
         $model = new LoginForm();

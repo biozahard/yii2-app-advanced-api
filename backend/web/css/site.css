@@ -118,3 +118,14 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+
+.install-logo, .login-logo {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+.install-logo a, .login-logo a {
+    color: #fff;
+}

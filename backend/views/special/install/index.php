@@ -28,12 +28,12 @@ $fieldOptions2 = [
 ?>
 
 <div class="login-box">
-    <div class="login-logo">
+    <div class="install-logo">
         <a href="#">Установка<br><strong>MediSpark CRM</strong></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Чтобы начать пользоваться системой необходимо создать <strong>СуперАдминистратора</strong>, это самая всемогущая роль в системе.</p>
+        <p class="login-box-msg">Чтобы начать пользоваться системой необходимо создать <strong>Администратора</strong>.</p>
 
         <?php $form = ActiveForm::begin(['id' => 'form-install']); ?>
 

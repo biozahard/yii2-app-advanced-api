@@ -11,7 +11,7 @@ class InstallCrmModel extends Model
     public $name;
     public $email;
     public $password;
-    protected $superAdmin;
+    protected $user;
 
 
     /**
@@ -55,13 +55,17 @@ class InstallCrmModel extends Model
 
 
         $user = new User();
+        $user->name = $this->name;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         if ($user->save()) {
-            $superAdminRole = $auth->getRole('superadmin');
-            $auth->assign($superAdminRole, $user->id);
-            $this->superAdmin = $user;
+            $adminRole = $auth->getRole('admin');
+            $auth->assign($adminRole, $user->id);
+            $manageAdmins = $auth->getPermission('manageAdmins');
+            $auth->assign($manageAdmins, $user->id);
+
+            $this->user = $user;
             return true;
         } else {
             return false;
@@ -70,6 +74,6 @@ class InstallCrmModel extends Model
 
     public function getUser()
     {
-        return $this->superAdmin;
+        return $this->user;
     }
 }
