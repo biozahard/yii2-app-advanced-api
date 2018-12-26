@@ -46,6 +46,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'install' => 'special/install/index',
+                'users' => 'user/index',
                 '<controller>' => '<controller>/index',
                 '<controller>/<action>' => '<controller>/<action>',
             ],
