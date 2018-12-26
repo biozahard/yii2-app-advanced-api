@@ -20,7 +20,12 @@ $this->title = 'Пользователи CRM';
         'dataProvider' => $dataProvider,
         'columns' => [
             'id',
-            'name',
+            [
+                'header' => 'Имя',
+                'content' => function ($model, $key, $index, $column) {
+                   return \yii\bootstrap\Html::a($model->name,['update', 'id'=> $model->id]);
+                }
+            ],
             'email:email',
             [
                 'header' => 'Роль',
@@ -52,7 +57,12 @@ $this->title = 'Пользователи CRM';
                     }
                 }
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'header' => 'Действие',
+                'content' => function ($model, $key, $index, $column) {
+                    return \yii\bootstrap\Html::a('Изменить',['update', 'id'=> $model->id],['class'=>'btn-xs btn-default']);
+                }
+            ],
         ],
     ]); ?>
 </div>

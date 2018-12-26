@@ -5,14 +5,14 @@ use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model \backend\models\user\CreateUserForm */
+/* @var $user \common\models\User */
 /* @var $role string */
 /* @var $canManageAdmins bool */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->title = 'Создание нового пользователя CRM';
+$this->title = 'Редактирование пользователя ' . $model->name . " (id: $user->id)";
 ?>
 <div class="user-update">
-
     <div class="user-form">
 
         <?php $form = ActiveForm::begin(); ?>
@@ -27,10 +27,9 @@ $this->title = 'Создание нового пользователя CRM';
 
 
         <div class="form-group">
-            <?= Html::submitButton('Добавить пользователя', ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton('Сохранить изменения', ['class' => 'btn btn-success']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>
-
     </div>
 </div>
