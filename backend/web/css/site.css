@@ -129,3 +129,15 @@ a.desc:after {
 .install-logo a, .login-logo a {
     color: #fff;
 }
+
+.skin-blue .main-header .navbar {
+    background-color: #337ab7;
+}
+
+.content-wrapper{
+    background-color: #f5f7ff;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #2e6da4;
+}
