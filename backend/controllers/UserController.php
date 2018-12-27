@@ -36,12 +36,12 @@ class UserController extends Controller
                     [
                         'actions' => ['index'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['manageUsers'],
                     ],
                     [
-                        'actions' => ['update'],
+                        'actions' => ['update','create'],
                         'allow' => true,
-                        'roles' => ['admin'],
+                        'roles' => ['manageUsers'],
                     ],
                 ],
             ]

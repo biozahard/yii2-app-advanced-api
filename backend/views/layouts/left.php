@@ -17,9 +17,11 @@
                         'items' => [
                             ['label' => 'Клиники', 'url' => ['/patients']],
                             ['label' => 'Врачи', 'url' => ['/patients']],
-                            ['label' => 'Пользователи CRM', 'url' => ['/users']],
                         ],
                     ],
+
+                    ['label' => 'Управление CRM', 'options' => ['class' => 'header'], 'visible' => Yii::$app->user->can('manageUsers')],
+                    ['label' => 'Пользователи', 'url' => ['/users'], 'visible' => Yii::$app->user->can('manageUsers')],
 
                     ['label' => 'Выход', 'options' => ['class' => 'header']],
                     ['label' => 'Logout', 'url' => ['site/logout']],

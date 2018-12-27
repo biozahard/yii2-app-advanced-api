@@ -24,8 +24,8 @@ class RbacController extends Controller
 
 
         //  ADMIN ROLE
-        $createUsers = $auth->createPermission('createUsers');
-        $createUsers->description = 'Create a users';
+        $createUsers = $auth->createPermission('manageUsers');
+        $createUsers->description = 'Manage CRM users';
         $auth->add($createUsers);
 
 

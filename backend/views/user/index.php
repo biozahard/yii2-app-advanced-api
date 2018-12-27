@@ -18,12 +18,19 @@ $this->title = 'Пользователи CRM';
     <?php endif; ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'tableOptions' => ['class' => 'table table-striped table-bordered'],
+        'rowOptions' => function ($model) {
+            if ($model->id == Yii::$app->user->id) {
+                return ['class' => 'warning'];
+            }
+            return null;
+        },
         'columns' => [
             'id',
             [
                 'header' => 'Имя',
                 'content' => function ($model, $key, $index, $column) {
-                   return \yii\bootstrap\Html::a($model->name,['update', 'id'=> $model->id]);
+                    return \yii\bootstrap\Html::a($model->name, ['update', 'id' => $model->id]);
                 }
             ],
             'email:email',
@@ -37,10 +44,10 @@ $this->title = 'Пользователи CRM';
                         $string .= $role->name . " ";
                     }
                     $perms = $auth->getPermissionsByUser($model->id);
-                    $names = \yii\helpers\ArrayHelper::getColumn($perms,'name');
+                    $names = \yii\helpers\ArrayHelper::getColumn($perms, 'name');
 
-                    if (in_array('manageAdmins',$names)){
-                        $string .= '<br>'.'<small>Управление админами</small>';
+                    if (in_array('manageAdmins', $names)) {
+                        $string .= '<br>' . '<small>Управление админами</small>';
                     }
                     return $string;
                 }
@@ -60,7 +67,7 @@ $this->title = 'Пользователи CRM';
             [
                 'header' => 'Действие',
                 'content' => function ($model, $key, $index, $column) {
-                    return \yii\bootstrap\Html::a('Изменить',['update', 'id'=> $model->id],['class'=>'btn-xs btn-default']);
+                    return \yii\bootstrap\Html::a('Изменить', ['update', 'id' => $model->id], ['class' => 'btn-xs btn-default']);
                 }
             ],
         ],
